@@ -24,4 +24,16 @@ public class BeerClass {
         return 0;
     }
 
+    public float getPrice() {
+        return mPrice;
+    }
+
+    public float getAlcohol() {
+        return mAlcohol;
+    }
+
+    public int getCalories() {
+        return mCalories;
+    }
+
 }
