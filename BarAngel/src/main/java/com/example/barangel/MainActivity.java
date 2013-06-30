@@ -117,6 +117,8 @@ public class MainActivity extends FragmentActivity {
         public DummySectionFragment() {
         }
 
+        // @TODO: This is where I change the information in each Fragment
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {

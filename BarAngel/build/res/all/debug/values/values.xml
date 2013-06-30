@@ -4,11 +4,12 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <string name="PickBeer">Which Beer would you like?</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">BarAngel</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Bar Check in</string>
+    <string name="title_section2">Select Beer</string>
+    <string name="title_section3">Review and Pay</string>
 
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
