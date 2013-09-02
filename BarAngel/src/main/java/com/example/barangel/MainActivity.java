@@ -18,6 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+// my classes
+import com.example.barangel.BarClass;
+import com.example.barangel.BeerClass;
+
 public class MainActivity extends FragmentActivity {
 
     /**
@@ -121,10 +125,59 @@ public class MainActivity extends FragmentActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
             TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
             dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+            return rootView;
+        }
+
+        public void setText(String item)
+        {
+            TextView txtview = (TextView) getView().findViewById(R.id.pager_title_strip);
+            txtview.setText(item);
+        }
+    }
+
+    public static class BarSectionFragment extends Fragment
+    {
+        public BarSectionFragment()
+        {
+
+        }
+
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+            View rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
+            return rootView;
+        }
+    }
+
+
+    public static class BeerSectionFragment extends Fragment
+    {
+        public BeerSectionFragment()
+        {
+
+        }
+
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+
+            View rootView = inflater.inflate(R.layout.fragment_main_beer, container, false);
+            return rootView;
+        }
+    }
+
+
+    public static class PaySectionFragment extends Fragment
+    {
+        public PaySectionFragment()
+        {
+
+        }
+
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+
+            View rootView = inflater.inflate(R.layout.fragment_main_pay, container, false);
             return rootView;
         }
     }
