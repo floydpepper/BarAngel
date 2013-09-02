@@ -1,5 +1,8 @@
 package com.example.barangel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by mlynch on 01/09/13.
  */
@@ -9,6 +12,18 @@ public class BarClass {
     String mAddress;
     int mRating;
 
+    List<String> barList = new ArrayList<String>();
+
+    private void initList()
+    {
+        barList.add("Ronnies Local");
+        barList.add("Pour Girl");
+    }
+
+    public String[] getBarList()
+    {
+        return (String[]) barList.toArray();
+    }
     public String getName()
     {
         return mName;

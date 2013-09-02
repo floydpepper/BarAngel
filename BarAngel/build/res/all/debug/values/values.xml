@@ -4,6 +4,8 @@
     <!-- From: file:/home/mlynch/Dropbox/work/code/BarAngelProject/BarAngel/src/main/res/values/dimens.xml -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/home/mlynch/Dropbox/work/code/BarAngelProject/BarAngel/src/main/res/values/ids.xml -->
+    <item name="chooseBar" type="id"/>
     <!-- From: file:/home/mlynch/Dropbox/work/code/BarAngelProject/BarAngel/src/main/res/values/strings.xml -->
     <string name="PickBeer">Which Beer would you like?</string>
     <string name="action_settings">Settings</string>

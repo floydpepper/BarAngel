@@ -79,11 +79,29 @@ public class MainActivity extends FragmentActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a DummySectionFragment (defined as a static inner class
             // below) with the page number as its lone argument.
+            Fragment barfragment = new BarSectionFragment();
+            Fragment beerfragment = new BeerSectionFragment();
+            Fragment payfragment = new PaySectionFragment();
+            Bundle args = new Bundle();
+
+            switch (position){
+                case 0:
+
+                    return barfragment;
+                case 1:
+                    return beerfragment;
+                case 2:
+                    return payfragment;
+            }
+            return null;
+
+            /*
+            // Old code
             Fragment fragment = new DummySectionFragment();
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
             fragment.setArguments(args);
-            return fragment;
+            return fragment;*/
         }
 
         @Override
@@ -141,13 +159,15 @@ public class MainActivity extends FragmentActivity {
 
     public static class BarSectionFragment extends Fragment
     {
+        BarClass bar = new BarClass();
         public BarSectionFragment()
         {
 
         }
 
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-            View rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
+            View rootView;
+            rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
             return rootView;
         }
     }
