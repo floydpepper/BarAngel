@@ -16,6 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 // my classes
@@ -157,17 +160,23 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
+    /*
+    @TODO: Fix the issue with the list view
+     */
     public static class BarSectionFragment extends Fragment
     {
         BarClass bar = new BarClass();
+        //ArrayAdapter<String> mAdaptor;
         public BarSectionFragment()
         {
-
+            //mAdaptor = new ArrayAdapter<String>(getActivity(), R.id.chooseBar, bar.getBarList());
         }
 
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
             View rootView;
             rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
+            //ListView mlist = (ListView) getView().findViewById(R.id.chooseBar);
+
             return rootView;
         }
     }
@@ -183,6 +192,7 @@ public class MainActivity extends FragmentActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
             View rootView = inflater.inflate(R.layout.fragment_main_beer, container, false);
+            TextView barTextView = (TextView) rootView.findViewById(R.id.section_label);
             return rootView;
         }
     }

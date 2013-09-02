@@ -20,6 +20,7 @@
         android:layout_below="@+id/section_label"
         android:layout_toRightOf="@+id/section_label"
         android:choiceMode="singleChoice"
-        tools:listitem="@android:layout/simple_list_item_single_choice" />
+        tools:listitem="@android:layout/simple_list_item_single_choice"
+        android:clickable="true" />
 
 </RelativeLayout>
