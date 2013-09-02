@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -165,18 +167,21 @@ public class MainActivity extends FragmentActivity {
      */
     public static class BarSectionFragment extends Fragment
     {
-        BarClass bar = new BarClass();
-        //ArrayAdapter<String> mAdaptor;
+
         public BarSectionFragment()
         {
-            //mAdaptor = new ArrayAdapter<String>(getActivity(), R.id.chooseBar, bar.getBarList());
+
         }
 
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
             View rootView;
             rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
-            //ListView mlist = (ListView) getView().findViewById(R.id.chooseBar);
-
+            /*BarClass mBar = new BarClass();
+            rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
+            this.setListAdapter(new ArrayAdapter<String>(getActivity(), R.id.list, mBar.getBarList()));
+*/
+            TextView txtView = (TextView) rootView.findViewById(R.id.section_label);
+            txtView.setText("Choose bar");
             return rootView;
         }
     }
@@ -184,6 +189,7 @@ public class MainActivity extends FragmentActivity {
 
     public static class BeerSectionFragment extends Fragment
     {
+
         public BeerSectionFragment()
         {
 
