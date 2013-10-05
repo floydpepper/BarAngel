@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -33,6 +35,9 @@ public class MainActivity extends FragmentActivity {
      */
     ViewPager mViewPager;
 
+    public String[] listS ={"item1","item2","item3"};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,11 @@ public class MainActivity extends FragmentActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        // bar list view
+        ListView barList = (ListView)findViewById(R.id.listView);
+        //barList.setAdapter(new ArrayAdapter<String>(this, R.layout.,R.id.labeld, listS));
+
 
     }
 
