@@ -173,7 +173,6 @@ public class MainActivity extends FragmentActivity {
         }
 
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
             View rootView = inflater.inflate(R.layout.fragment_main_beer, container, false);
             TextView beerTextView = (TextView) rootView.findViewById(R.id.section_label);
             beerTextView.setText("Choose Beer");
