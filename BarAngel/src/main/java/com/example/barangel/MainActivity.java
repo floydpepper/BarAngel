@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.Locale;
@@ -35,9 +33,6 @@ public class MainActivity extends FragmentActivity {
      */
     ViewPager mViewPager;
 
-    public String[] listS ={"item1","item2","item3"};
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +46,6 @@ public class MainActivity extends FragmentActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        // bar list view
-        ListView barList = (ListView)findViewById(R.id.listView);
-        //barList.setAdapter(new ArrayAdapter<String>(this, R.layout.,R.id.labeld, listS));
-
 
     }
 
@@ -98,14 +88,6 @@ public class MainActivity extends FragmentActivity {
                     return payfragment;
             }
             return null;
-
-            /*
-            // Old code
-            Fragment fragment = new DummySectionFragment();
-            Bundle args = new Bundle();
-            args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-            fragment.setArguments(args);
-            return fragment;*/
         }
 
         @Override
@@ -175,12 +157,8 @@ public class MainActivity extends FragmentActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
             View rootView;
             rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
-            /*BarClass mBar = new BarClass();
-            rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
-            this.setListAdapter(new ArrayAdapter<String>(getActivity(), R.id.list, mBar.getBarList()));
-*/
-            TextView txtView = (TextView) rootView.findViewById(R.id.section_label);
-            txtView.setText("Choose bar");
+            TextView bartxtView = (TextView) rootView.findViewById(R.id.section_label);
+            bartxtView.setText("Choose bar");
             return rootView;
         }
     }
@@ -197,7 +175,8 @@ public class MainActivity extends FragmentActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
             View rootView = inflater.inflate(R.layout.fragment_main_beer, container, false);
-            TextView barTextView = (TextView) rootView.findViewById(R.id.section_label);
+            TextView beerTextView = (TextView) rootView.findViewById(R.id.section_label);
+            beerTextView.setText("Choose Beer");
             return rootView;
         }
     }
