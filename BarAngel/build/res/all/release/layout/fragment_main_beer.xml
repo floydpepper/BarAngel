@@ -13,4 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/PickBeer"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/section_label"
+        android:layout_toRightOf="@+id/section_label" />
+
 </RelativeLayout>
+<!-- From: file:/home/mlynch/Dropbox/work/code/BarAngelProject/BarAngel/src/main/res/layout/fragment_main_beer.xml -->
