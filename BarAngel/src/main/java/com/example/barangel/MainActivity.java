@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
 import java.util.Locale;
+import java.util.Vector;
 
 // my classes
 
@@ -26,8 +29,8 @@ public class MainActivity extends FragmentActivity {
      * intensive, it may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    SectionsPagerAdapter mSectionsPagerAdapter;
-
+    //SectionsPagerAdapter mSectionsPagerAdapter;
+    private MyPagerAdapter pagerAdapter;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
@@ -41,12 +44,28 @@ public class MainActivity extends FragmentActivity {
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the app.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        //mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        //mViewPager.setAdapter(mSectionsPagerAdapter);
+        PagerTitleStrip pagerStrip = (PagerTitleStrip) findViewById(R.id.pager_title_strip);
+        // TODO: add underline for selected title strip
+        mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setCurrentItem(0);
+        initialisePaging();
+    }
 
+    private void initialisePaging() {
+
+        List<Fragment> fragments = new Vector<Fragment>();
+        fragments.add(Fragment.instantiate(this, BarFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, BeerFragment.class.getName()));
+        fragments.add(Fragment.instantiate(this, PayFragment.class.getName()));
+        this.pagerAdapter = new MyPagerAdapter(super.getSupportFragmentManager(), fragments);
+        ViewPager pager = (ViewPager) super.findViewById(R.id.pager);
+        pager.setAdapter(this.pagerAdapter);
     }
 
     @Override
@@ -61,7 +80,7 @@ public class MainActivity extends FragmentActivity {
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
-     */
+     *//*
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -73,9 +92,9 @@ public class MainActivity extends FragmentActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a DummySectionFragment (defined as a static inner class
             // below) with the page number as its lone argument.
-            Fragment barfragment = new BarSectionFragment();
-            Fragment beerfragment = new BeerSectionFragment();
-            Fragment payfragment = new PaySectionFragment();
+            Fragment barfragment = new BarFragment();
+            Fragment beerfragment = new BeerFragment();
+            Fragment payfragment = new PayFragment();
             Bundle args = new Bundle();
 
             switch (position){
@@ -109,7 +128,7 @@ public class MainActivity extends FragmentActivity {
             }
             return null;
         }
-    }
+    }*/
 
     /**
      * A dummy fragment representing a section of the app, but that simply
@@ -140,58 +159,6 @@ public class MainActivity extends FragmentActivity {
         {
             TextView txtview = (TextView) getView().findViewById(R.id.pager_title_strip);
             txtview.setText(item);
-        }
-    }
-
-    /*
-    @TODO: Fix the issue with the list view
-     */
-    public static class BarSectionFragment extends Fragment
-    {
-
-        public BarSectionFragment()
-        {
-
-        }
-
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-            View rootView;
-            rootView = inflater.inflate(R.layout.fragment_main_bar, container, false);
-            TextView bartxtView = (TextView) rootView.findViewById(R.id.section_label);
-            bartxtView.setText("Choose bar");
-            return rootView;
-        }
-    }
-
-
-    public static class BeerSectionFragment extends Fragment
-    {
-
-        public BeerSectionFragment()
-        {
-
-        }
-
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-            View rootView = inflater.inflate(R.layout.fragment_main_beer, container, false);
-            TextView beerTextView = (TextView) rootView.findViewById(R.id.section_label);
-            beerTextView.setText("Choose Beer");
-            return rootView;
-        }
-    }
-
-
-    public static class PaySectionFragment extends Fragment
-    {
-        public PaySectionFragment()
-        {
-
-        }
-
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-
-            View rootView = inflater.inflate(R.layout.fragment_main_pay, container, false);
-            return rootView;
         }
     }
 
